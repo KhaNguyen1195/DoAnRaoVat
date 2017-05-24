@@ -17,5 +17,11 @@ namespace DoAnRaoVat_ASP.NET
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        protected void Session_Start()
+        {
+            Session["email"] = null;
+            Session["password"] = null;
+        }
     }
 }

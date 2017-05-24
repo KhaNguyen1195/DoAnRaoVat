@@ -157,6 +157,7 @@
     <Compile Include="Areas\Administrator\Controllers\TinhThanhPhoController.cs" />
     <Compile Include="Areas\Administrator\Controllers\UsersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -287,6 +288,7 @@
     <Content Include="assets\client\fonts\FontAwesome.otf" />
     <Content Include="assets\client\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="assets\client\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\Administrator\Views\Home\Login.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -309,13 +311,13 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administrator\Models\" />
     <Folder Include="Areas\NewFolder1\" />
     <Folder Include="Models\" />
-    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -13,5 +13,9 @@ namespace DoAnRaoVat_ASP.NET.Areas.Administrator.Controllers
         {
             return View();
         }
+        public ActionResult Login()
+        {
+            return View();
+        }
     }
 }

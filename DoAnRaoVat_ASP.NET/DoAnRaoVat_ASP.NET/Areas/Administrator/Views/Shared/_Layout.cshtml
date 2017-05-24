@@ -1,4 +1,9 @@
-﻿
+﻿@{ 
+    if(Session["email"] == null)
+    {
+        Response.Redirect("~/Administrator/Home/Login");
+    }
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>

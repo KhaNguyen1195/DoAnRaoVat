@@ -671,10 +671,6 @@ pre code {
 .container:after {
   clear: both;
 }
-.row_index{
-    margin-left: 100px;
-    margin-right:-15px;
-}
 
 .row {
   margin-left: -15px;

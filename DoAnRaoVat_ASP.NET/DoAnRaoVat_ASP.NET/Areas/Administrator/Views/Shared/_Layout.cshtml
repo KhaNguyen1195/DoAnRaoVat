@@ -1,9 +1,9 @@
-﻿@{ 
-    if(Session["email"] == null)
-    {
-        Response.Redirect("~/Administrator/Home/Login");
-    }
-}
+﻿@*@{
+        if(Session["email"] == null)
+        {
+            Response.Redirect("~/Administrator/Home/Login");
+        }
+    }*@
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,8 +25,8 @@
     <link href="~/Areas/Administrator/Content/css/elegant-icons-style.css" rel="stylesheet" />
     <link href="~/Areas/Administrator/Content/css/font-awesome.min.css" rel="stylesheet" />
     <!-- Custom styles -->
-    <link href="~/Areas/Administrator/Content/css/style.css" rel="stylesheet">
     <link href="~/Areas/Administrator/Content/css/style-responsive.css" rel="stylesheet" />
+    <link href="~/Areas/Administrator/Content/css/style.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
     <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
@@ -40,7 +40,7 @@
     <section id="container" class="">
         <header class="header dark-bg">
             <div class="toggle-nav">
-                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+                <div class="icon-reorder tooltips" data-original-title="Thu gọn menu" data-placement="bottom"><i class="icon_menu"></i></div>
             </div>
 
             <!--logo start-->
@@ -108,7 +108,7 @@
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu">
                     <li class="active">
-                        <a class="" href="~/Areas/Administrator/Views/Home/Index.cshtml">
+                        <a class="" href="~/Administrator/Home/Index">
                             <i class="icon_house_alt"></i>
                             <span>Trang chủ</span>
                         </a>
@@ -120,44 +120,37 @@
                             <span class="menu-arrow arrow_carrot-right"></span>
                         </a>
                         <ul class="sub">
-                            <li><a class="" href="~/Areas/Administrator/KhuVuc/Index">Quản lý nhân viên</a></li>
+                            <li><a class="" href="~/Administrator/Users/Index">Quản lý người dùng</a></li>
                             <li><a class="" href="dskhachhang.html">Quản lý khách hàng</a></li>
                         </ul>
                     </li>
                     <li class="sub-menu">
-                        <a href="javascript:;" class="">
+                        <a href="~/Administrator/LoaiDanhMuc/Index" class="">
+                            <i class="fa fa-list-alt"></i>
+                            <span>Quản lý loại danh mục</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="~/Administrator/DanhMuc/Index" class="">
                             <i class="fa fa-list-alt"></i>
                             <span>Quản lý danh mục</span>
-                            <b class="menu-arrow arrow_carrot-right"></b>
                         </a>
-                        <ul class="sub">
-                            <li><a class="" href="dsloaitrangsuc.html">Loại trang sức</a></li>
-                            <li><a class="" href="dstrangsuc.html">Trang sức</a></li>
-                            <li><a class="" href="dssanpham.html">Sản phẩm</a></li>
-                            <li><a class="" href="dsthuonghieu.html">Thương hiệu</a></li>
-                            <li><a class="" href="dschatlieu.html">Chất liệu</a></li>
-                            <li><a class="" href="dschungloai.html">Chủng loại</a></li>
-                            <li><a class="" href="dsloaivang.html">Loại vàng</a></li>
-                            <li><a class="" href="dsloaida.html">Loại đá</a></li>
-                            <li><a class="" href="dsmauda.html">Màu đá</a></li>
-                            <li><a class="" href="dsnhacungcap.html">Nhà cung cấp</a></li>
-                        </ul>
                     </li>
                     <li class="sub-menu">
                         <a href="javascript:;" class="">
                             <i class="fa fa-cubes"></i>
-                            <span>Quản lý kho hàng</span>
+                            <span>Quản lý địa điểm</span>
                             <span class="menu-arrow arrow_carrot-right"></span>
                         </a>
                         <ul class="sub">
-                            <li><a class="" href="">Nhập kho</a></li>
-                            <li><a class="" href=""><span>Xuất kho</span></a></li>
+                            <li><a class="" href="~/Administrator/KhuVuc/Index">Khu vực</a></li>
+                            <li><a class="" href="~/Administrator/TinhThanhPho/Index"><span>Tỉnh thành phố</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a class="" href="">
+                        <a class="" href="~/Administrator/DangTin/Index">
                             <i class="fa fa-shopping-cart"></i>
-                            <span>Quản lý đơn hàng</span>
+                            <span>Quản lý bài đăng</span>
                         </a>
                     </li>
                     <li>
@@ -175,7 +168,7 @@
         <!--sidebar end-->
         <!--main content start-->
         <section id="main-content">
-            
+
             @RenderBody()
         </section>
         <!--main content end-->

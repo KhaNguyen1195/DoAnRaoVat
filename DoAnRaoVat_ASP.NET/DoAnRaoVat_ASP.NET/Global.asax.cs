@@ -18,10 +18,10 @@ namespace DoAnRaoVat_ASP.NET
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
-        //protected void Session_Start()
-        //{
-        //    Session["email"] = null;
-        //    Session["password"] = null;
-        //}
+        protected void Session_Start()
+        {
+            Session["email"] = null;
+            Session["password"] = null;
+        }
     }
 }

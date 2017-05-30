@@ -44,6 +44,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -80,6 +88,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -149,19 +159,62 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Administrator\AdministratorAreaRegistration.cs" />
+    <Compile Include="Areas\Administrator\Code\SessionHelper.cs" />
+    <Compile Include="Areas\Administrator\Code\UserSession.cs" />
     <Compile Include="Areas\Administrator\Controllers\DangTinController.cs" />
     <Compile Include="Areas\Administrator\Controllers\DanhMucController.cs" />
     <Compile Include="Areas\Administrator\Controllers\HomeController.cs" />
     <Compile Include="Areas\Administrator\Controllers\KhuVucController.cs" />
     <Compile Include="Areas\Administrator\Controllers\LoaiDanhMucController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\LoginController.cs" />
     <Compile Include="Areas\Administrator\Controllers\TinhThanhPhoController.cs" />
     <Compile Include="Areas\Administrator\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Administrator\Models\LoginModels.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="DangTin.cs">
+      <DependentUpon>DoAnRaoVat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc.cs">
+      <DependentUpon>DoAnRaoVat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DoAnRaoVat.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DoAnRaoVat.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DoAnRaoVat.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DoAnRaoVat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DoAnRaoVat.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DoAnRaoVat.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="GopY.cs">
+      <DependentUpon>DoAnRaoVat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhuVuc.cs">
+      <DependentUpon>DoAnRaoVat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoaiDanhMuc.cs">
+      <DependentUpon>DoAnRaoVat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NguoiDung.cs">
+      <DependentUpon>DoAnRaoVat.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>DoAnRaoVat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TinhThanhPho.cs">
+      <DependentUpon>DoAnRaoVat.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Administrator\Content\css\bootstrap-theme.css" />
@@ -169,6 +222,7 @@
     <Content Include="Areas\Administrator\Content\css\elegant-icons-style.css" />
     <Content Include="Areas\Administrator\Content\css\font-awesome.min.css" />
     <Content Include="Areas\Administrator\Content\css\line-icons.css" />
+    <Content Include="Areas\Administrator\Content\css\style-admin.css" />
     <Content Include="Areas\Administrator\Content\css\style-responsive.css" />
     <Content Include="Areas\Administrator\Content\css\style.css" />
     <Content Include="Areas\Administrator\Content\fonts\ElegantIcons.svg" />
@@ -217,41 +271,51 @@
     <Content Include="Areas\Administrator\Content\js\morris-script.js" />
     <Content Include="Areas\Administrator\Content\js\morris.min.js" />
     <Content Include="Areas\Administrator\Content\js\scripts.js" />
-    <Content Include="assets\client\css\bootstrap.css" />
-    <Content Include="assets\client\css\flexslider.css" />
-    <Content Include="assets\client\css\font-awesome.css" />
-    <Content Include="assets\client\css\lightbox.css" />
-    <Content Include="assets\client\css\style.css" />
-    <Content Include="assets\client\fonts\fontawesome-webfont.svg" />
-    <Content Include="assets\client\images\1.png" />
-    <Content Include="assets\client\images\2.png" />
-    <Content Include="assets\client\images\3.png" />
-    <Content Include="assets\client\images\bg.jpg" />
-    <Content Include="assets\client\images\bg1.jpg" />
-    <Content Include="assets\client\images\close.png" />
-    <Content Include="assets\client\images\g1.jpg" />
-    <Content Include="assets\client\images\g2.jpg" />
-    <Content Include="assets\client\images\g3.jpg" />
-    <Content Include="assets\client\images\g4.jpg" />
-    <Content Include="assets\client\images\g5.jpg" />
-    <Content Include="assets\client\images\g6.jpg" />
-    <Content Include="assets\client\images\g7.jpg" />
-    <Content Include="assets\client\images\img1.jpg" />
-    <Content Include="assets\client\images\img2.jpg" />
-    <Content Include="assets\client\images\move-up.png" />
-    <Content Include="assets\client\images\next.png" />
-    <Content Include="assets\client\images\overlay.png" />
-    <Content Include="assets\client\images\prev.png" />
-    <Content Include="assets\client\js\bars.js" />
-    <Content Include="assets\client\js\bootstrap.js" />
-    <Content Include="assets\client\js\easing.js" />
-    <Content Include="assets\client\js\jquery-2.2.3.min.js" />
-    <Content Include="assets\client\js\jquery.flexslider.js" />
-    <Content Include="assets\client\js\lightbox-plus-jquery.min.js" />
-    <Content Include="assets\client\js\move-top.js" />
-    <Content Include="assets\client\js\SmoothScroll.min.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\flexslider.css" />
+    <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\css\lightbox.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\images\1.png" />
+    <Content Include="Content\images\2.png" />
+    <Content Include="Content\images\3.png" />
+    <Content Include="Content\images\bg.jpg" />
+    <Content Include="Content\images\bg1.jpg" />
+    <Content Include="Content\images\close.png" />
+    <Content Include="Content\images\g1.jpg" />
+    <Content Include="Content\images\g2.jpg" />
+    <Content Include="Content\images\g3.jpg" />
+    <Content Include="Content\images\g4.jpg" />
+    <Content Include="Content\images\g5.jpg" />
+    <Content Include="Content\images\g6.jpg" />
+    <Content Include="Content\images\g7.jpg" />
+    <Content Include="Content\images\img1.jpg" />
+    <Content Include="Content\images\img2.jpg" />
+    <Content Include="Content\images\move-up.png" />
+    <Content Include="Content\images\next.png" />
+    <Content Include="Content\images\overlay.png" />
+    <Content Include="Content\images\prev.png" />
+    <Content Include="Content\js\bars.js" />
+    <Content Include="Content\js\bootstrap.js" />
+    <Content Include="Content\js\easing.js" />
+    <Content Include="Content\js\jquery-2.2.3.min.js" />
+    <Content Include="Content\js\jquery.flexslider.js" />
+    <Content Include="Content\js\lightbox-plus-jquery.min.js" />
+    <Content Include="Content\js\move-top.js" />
+    <Content Include="Content\js\SmoothScroll.min.js" />
+    <Content Include="DoAnRaoVat.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DoAnRaoVat.edmx</DependentUpon>
+      <LastGenOutput>DoAnRaoVat.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DoAnRaoVat.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DoAnRaoVat.edmx</DependentUpon>
+      <LastGenOutput>DoAnRaoVat.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -281,14 +345,21 @@
     <Content Include="Areas\Administrator\Views\DangTin\Index.cshtml" />
     <Content Include="Areas\Administrator\Views\KhuVuc\Index.cshtml" />
     <Content Include="Areas\Administrator\Views\TinhThanhPho\Index.cshtml" />
-    <Content Include="assets\client\fonts\fontawesome-webfont.eot" />
-    <Content Include="assets\client\fonts\fontawesome-webfont.ttf" />
-    <Content Include="assets\client\fonts\fontawesome-webfont.woff" />
-    <Content Include="assets\client\fonts\fontawesome-webfont.woff2" />
-    <Content Include="assets\client\fonts\FontAwesome.otf" />
-    <Content Include="assets\client\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="assets\client\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Areas\Administrator\Views\Home\Login.cshtml" />
+    <EntityDeploy Include="DoAnRaoVat.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DoAnRaoVat.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DoAnRaoVat.edmx.diagram">
+      <DependentUpon>DoAnRaoVat.edmx</DependentUpon>
+    </Content>
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\Administrator\Views\Login\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -301,7 +372,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -315,7 +388,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administrator\Models\" />
     <Folder Include="Areas\NewFolder1\" />
     <Folder Include="Models\" />
   </ItemGroup>
@@ -326,6 +398,15 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{1fff9cc8-e922-42ab-abf5-9f27d17cbadb}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
